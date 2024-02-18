@@ -1,1 +1,1 @@
-#My Git Config with NvChad for angular
+## My Git Config with NvChad for angular
