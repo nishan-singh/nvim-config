@@ -11,12 +11,15 @@ M.general = {
         require("conform").format()
       end,
       "formatting",
-    }
-
+    },
+    ["<leader>tl"] = { "<cmd> Telescope find_files cwd=./libs <CR>" },
+    ["<leader>pv"] = { ":vs<CR>" },
+    ["<leader>ps"] = { ":sp<CR>" },
+    -- ["<leader>po"] = {  "<C-w>o<CR>" },
   },
   v = {
-    [">"] = { ">gv", "indent"},
-    ["C-v"] = { "C-v", "blockwise visual mode", remap = true},
+    [">"] = { ">gv", "indent" },
+    ["C-v"] = { "C-v", "blockwise visual mode", remap = true },
   },
 }
 
