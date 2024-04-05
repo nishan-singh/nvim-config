@@ -34,7 +34,7 @@ local plugins = {
   -- Install a plugin
   {
     "neoclide/coc.nvim",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "max397574/better-escape.nvim",
