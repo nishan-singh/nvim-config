@@ -33,8 +33,18 @@ local plugins = {
   require 'custom.plugins.lspconfig',
   require 'custom.plugins.conform',
   require 'custom.plugins.treesitter',
-  require 'custom.plugins.cmd',
+  require 'custom.plugins.nvim-cmd',
   require 'custom.plugins.tokyonight',
+  {
+    'stevearc/oil.nvim',
+    config = function()
+      require('oil').setup { keymaps = { ['<Esc>'] = 'actions.close' } }
+    end,
+    keys = {
+      { '=', '<cmd>Oil<cr>', mode = 'n', desc = 'Open Filesystem' },
+      { '-', '<cmd>Oil --float<cr>', mode = 'n', desc = 'Open Floating Filesystem' },
+    },
+  },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
@@ -55,6 +65,7 @@ local plugins = {
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'custom.plugins.vim-fugitive',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
