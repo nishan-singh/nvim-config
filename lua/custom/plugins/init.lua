@@ -18,16 +18,8 @@ local plugins = {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
-  -- keys can be used to configure plugin behavior/loading/etc.
-  --
-  -- Use `opts = {}` to force a plugin to be loaded.
-  --
   --  This is equivalent to:
-  --    require('Comment').setup({})
-
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
+  --    require('telescope').setup({})
   require 'custom.plugins.telescope',
   require 'custom.plugins.which-key',
   require 'custom.plugins.lspconfig',
@@ -35,24 +27,9 @@ local plugins = {
   require 'custom.plugins.treesitter',
   require 'custom.plugins.nvim-cmd',
   require 'custom.plugins.tokyonight',
-  {
-    'stevearc/oil.nvim',
-    config = function()
-      require('oil').setup { keymaps = { ['<Esc>'] = 'actions.close' } }
-    end,
-    keys = {
-      { '=', '<cmd>Oil<cr>', mode = 'n', desc = 'Open Filesystem' },
-      { '-', '<cmd>Oil --float<cr>', mode = 'n', desc = 'Open Floating Filesystem' },
-    },
-  },
-
-  -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
+  require 'custom.plugins.oil',
+  require 'custom.plugins.comments',
   require 'custom.plugins.mini',
-  -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
-  -- init.lua. If you want these files, they are in the repository, so you can just download them and
-  -- place them in the correct locations.
 
   -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
   --
@@ -63,7 +40,6 @@ local plugins = {
   -- require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
   require 'custom.plugins.vim-fugitive',
 

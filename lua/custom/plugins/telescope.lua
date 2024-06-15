@@ -3,7 +3,7 @@
 return {
   {
     'nvim-telescope/telescope.nvim',
-    event = 'VimEnter',
+    event = 'VeryLazy',
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -20,7 +20,9 @@ return {
     config = function()
       local telescope = require 'telescope'
       telescope.setup {
-        defaults = {},
+        defaults = {
+          file_ignore_patterns = { "node_modules", "_ts", "_ng" },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
