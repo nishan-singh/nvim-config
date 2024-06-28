@@ -3,13 +3,13 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
         enable = true,
         disable = function(_, buf)
-          local max_filesize = 1000 * 1024 -- 10 MB
+          local max_filesize = 1024 * 1024 -- 1 MB
           local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
           if ok and stats and stats.size > max_filesize then
             vim.notify 'Tree sitter disabled'

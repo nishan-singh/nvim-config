@@ -2,7 +2,7 @@ return {
 
   { -- Linting
     'mfussenegger/nvim-lint',
-    event = 'VeryLazy',
+    lazy = true,
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {

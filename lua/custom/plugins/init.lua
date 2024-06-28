@@ -30,31 +30,17 @@ local plugins = {
   require 'custom.plugins.oil',
   require 'custom.plugins.comments',
   require 'custom.plugins.mini',
-
-  -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
+  require 'custom.plugins.vim-fugitive',
+  require 'custom.plugins.hard-time',
   --
-  --  Here are some example plugins that I've included in the Kickstart repository.
-  --  Uncomment any of the lines below to enable them (you will need to restart nvim).
-  --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-  require 'custom.plugins.vim-fugitive',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    This is the easiest way to modularize your config.
-  --
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
 }
 
 local opts = {
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',
