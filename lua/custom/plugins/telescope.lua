@@ -21,7 +21,7 @@ return {
       local telescope = require 'telescope'
       telescope.setup {
         defaults = {
-          file_ignore_patterns = { "node_modules", "_ts", "_ng" },
+          file_ignore_patterns = { "node_modules", "_ts", "_ng", ".git" },
         },
         extensions = {
           ['ui-select'] = {
