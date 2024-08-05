@@ -143,7 +143,7 @@ return {
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-
+        angularls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
