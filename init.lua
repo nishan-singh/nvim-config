@@ -50,14 +50,14 @@ buffer_searcher = function()
         actions.close(prompt_bufnr)
         -- print(vim.inspect(selection))
         -- better print selection before first running this. I am not sure if it have a bufnr or if this field is named differently
-        vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+        vim.api.nvim_buf_delete(selection.bufnr, { })
         vim.schedule(buffer_searcher)
       end
       local delete_multiple_buf = function()
         local picker = action_state.get_current_picker(prompt_bufnr)
         local selection = picker:get_multi_selection()
         for _, entry in ipairs(selection) do
-          vim.api.nvim_buf_delete(entry.bufnr, { force = true })
+          vim.api.nvimde(entry.bufnr, { })
         end
         vim.schedule(buffer_searcher)
       end
@@ -69,12 +69,8 @@ buffer_searcher = function()
   }
 end
 
-
-
-vim.keymap.set('n', '<leader><leader>', buffer_searcher, {})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 --
 -- vim.schedule(buffer_searcher)
-vim.keymap.set("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 -- vim.api.nvim_set_keymap('n', '<leader>s', '<cmd>lua require("custom.switch-case").switch_case()<CR>', {noremap = true, silent = true})
