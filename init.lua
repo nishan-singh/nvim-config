@@ -57,7 +57,7 @@ buffer_searcher = function()
         local picker = action_state.get_current_picker(prompt_bufnr)
         local selection = picker:get_multi_selection()
         for _, entry in ipairs(selection) do
-          vim.api.nvimde(entry.bufnr, { })
+          vim.api.nvim_buf_delete(entry.bufnr, { })
         end
         vim.schedule(buffer_searcher)
       end
@@ -69,8 +69,6 @@ buffer_searcher = function()
   }
 end
 
+vim.keymap.set('n', '<leader><leader>', buffer_searcher, {})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
---
--- vim.schedule(buffer_searcher)
--- vim.api.nvim_set_keymap('n', '<leader>s', '<cmd>lua require("custom.switch-case").switch_case()<CR>', {noremap = true, silent = true})
