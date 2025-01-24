@@ -32,6 +32,7 @@ local plugins = {
   require 'custom.plugins.mini',
   require 'custom.plugins.vim-fugitive',
   require 'custom.plugins.hard-time',
+  require 'custom.plugins.copilot',
   --
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
