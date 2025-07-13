@@ -36,6 +36,7 @@ vim.opt.signcolumn = 'yes'
 
 -- Tab settings
 vim.opt.tabstop = 4 -- Number of spaces that a <Tab> counts for
+vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -94,3 +95,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<leader>vp', '')
 -- map('n', '<leader>pv', ':vs<CR>', options)
 vim.keymap.set('n', '<leader>pv', '<C-w>v', { desc = 'Split window vertically' })
+
+-- toogle virtual text
+vim.keymap.set('n', '<leader>vt', function()
+  vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
+end, { desc = 'Toggle virtual text for diagnostics' })
