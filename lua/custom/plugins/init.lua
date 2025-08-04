@@ -42,7 +42,6 @@ local plugins = {
   -- require "custom.plugins.nvim-cmd",
   require "custom.plugins.tokyonight",
   require "custom.plugins.oil",
-  require "custom.plugins.comments",
   require "custom.plugins.mini",
   require "custom.plugins.vim-fugitive",
   -- require "custom.plugins.hard-time",

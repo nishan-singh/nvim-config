@@ -1,4 +1,4 @@
-vim.lsp.enable { "clangd", "lua_ls", "gopls", "emmet-language-server" }
+vim.lsp.enable({ "clangd", "lua_ls", "gopls", "emmet-language-server" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)

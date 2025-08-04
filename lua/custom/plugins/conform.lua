@@ -11,7 +11,7 @@ return {
         desc = "[F]ormat buffer",
       },
     },
-    lazy = false,
+    lazy = true,
     opts = {
       notify_on_error = false,
       -- format_on_save = function(bufnr)
@@ -31,9 +31,9 @@ return {
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { "prettierd", "prettier" },
-        css = { "prettierd", "prettier" },
-        typescript = { "prettierd", "prettier" },
+        javascript = { "prettier" },
+        css = { "prettier" },
+        typescript = { "prettier" },
         c = { "clang-format" },
       },
     },

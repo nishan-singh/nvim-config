@@ -38,14 +38,14 @@ buffer_searcher = function()
         actions.close(prompt_bufnr)
         -- print(vim.inspect(selection))
         -- better print selection before first running this. I am not sure if it have a bufnr or if this field is named differently
-        vim.api.nvim_buf_delete(selection.bufnr, { })
+        vim.api.nvim_buf_delete(selection.bufnr, {})
         vim.schedule(buffer_searcher)
       end
       local delete_multiple_buf = function()
         local picker = action_state.get_current_picker(prompt_bufnr)
         local selection = picker:get_multi_selection()
         for _, entry in ipairs(selection) do
-          vim.api.nvim_buf_delete(entry.bufnr, { })
+          vim.api.nvim_buf_delete(entry.bufnr, {})
         end
         vim.schedule(buffer_searcher)
       end
@@ -70,5 +70,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
+  end,
+})
+
+vim.api.nvim_set_hl(0, "TODO", { fg = "#000000", bg = "#0DB9D7", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "NOTE", { fg = "#000000", bg = "#10B981", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "FIXME", { fg = "#ffffff", bg = "#DB4B4B", bold = true, italic = true })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = '*',
+  callback = function()
+    vim.fn.matchadd('TODO', "TODO")
+    vim.fn.matchadd('NOTE', "NOTE")
+    vim.fn.matchadd('FIXME', "FIXME")
   end,
 })
