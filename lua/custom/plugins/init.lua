@@ -36,7 +36,7 @@ local plugins = {
   --    require('telescope').setup({})
   require "custom.plugins.telescope",
   require "custom.plugins.which-key",
-  require "custom.plugins.lspconfig",
+  -- require "custom.plugins.lspconfig",
   require "custom.plugins.conform",
   require "custom.plugins.treesitter",
   -- require "custom.plugins.nvim-cmd",
