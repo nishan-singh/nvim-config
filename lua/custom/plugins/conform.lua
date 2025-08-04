@@ -11,6 +11,7 @@ return {
         desc = "[F]ormat buffer",
       },
     },
+    lazy = false,
     opts = {
       notify_on_error = false,
       -- format_on_save = function(bufnr)
@@ -32,7 +33,8 @@ return {
         -- is found.
         javascript = { "prettierd", "prettier" },
         css = { "prettierd", "prettier" },
-        typescript = { "prettierd", "prettier" } 
+        typescript = { "prettierd", "prettier" },
+        c = { "clang-format" },
       },
     },
   },

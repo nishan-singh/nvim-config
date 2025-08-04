@@ -23,6 +23,15 @@ local plugins = {
     cmd = { "LiveServerStart", "LiveServerStop" },
     config = true,
   },
+  -- {
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  --   ---@module 'render-markdown'
+  --   ---@type render.md.UserConfig
+  --   opts = {},
+  -- },
   --  This is equivalent to:
   --    require('telescope').setup({})
   require "custom.plugins.telescope",
@@ -38,10 +47,10 @@ local plugins = {
   require "custom.plugins.vim-fugitive",
   -- require "custom.plugins.hard-time",
   require "custom.plugins.copilot",
+  require "custom.plugins.autopairs",
   --
   -- require "kickstart.plugins.indent_line",
   -- require "kickstart.plugins.lint",
-  require "kickstart.plugins.autopairs",
   -- require "kickstart.plugins.gitsigns", -- adds gitsigns recommend keymaps
 }
 
