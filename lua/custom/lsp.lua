@@ -1,4 +1,4 @@
-vim.lsp.enable({ "clangd", "lua_ls", "gopls", "emmet-language-server" })
+vim.lsp.enable { "clangd", "emmet-language-server", "gopls", "lua-language-server", }
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
@@ -6,18 +6,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_completion) then
       vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+      vim.keymap.set("n", "gd", function()
+        vim.lsp.buf.definition()
+      end, { buffer = ev.buf, desc = "Go to definition" })
     end
   end,
-})
-
--- Diagnostics
-vim.diagnostic.config({
-  -- Use the default configuration
-  -- virtual_lines = true
-
-  -- Alternatively, customize specific options
-  virtual_lines = {
-    -- Only show virtual line diagnostics for the current cursor line
-    current_line = true,
-  },
 })
