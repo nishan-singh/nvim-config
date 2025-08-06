@@ -1,4 +1,4 @@
-vim.lsp.enable { "clangd", "emmet-language-server", "gopls", "kotlin-lsp" }
+vim.lsp.enable { "clangd", "emmet-language-server", "gopls", "kotlin-lsp", "typescript-language-server", "ngserver" }
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)

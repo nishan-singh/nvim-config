@@ -16,9 +16,8 @@ return {
       { "<leader>sr", "<cmd>FzfLua resume<cr>", desc = "Resume" },
       { "<leader>s.", "<cmd>FzfLua oldfiles<cr>", desc = "Old Files" },
       { "<leader><leader>", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
-      { "/", "<cmd>FzfLua current_buffer_fuzzy_find<cr>", desc = "Current Buffer Fuzzy Find" },
+      -- { "/", "<cmd>FzfLua current_buffer_fuzzy_find<cr>", desc = "Current Buffer Fuzzy Find" },
       { "<leader>s/", "<cmd>FzfLua live_grep_open_files<cr>", desc = "Live Grep Open Files" },
-      { "<leader>sn", "<cmd>FzfLua find_files_config<cr>", desc = "Find Files Config" },
     },
   },
 }

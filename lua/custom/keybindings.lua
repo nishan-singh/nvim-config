@@ -108,3 +108,7 @@ vim.keymap.set("n", "<leader>ph", "<C-w>s", { desc = "Split window horizontally"
 vim.keymap.set("n", "<leader>vt", function()
   vim.diagnostic.config { virtual_text = not vim.diagnostic.config().virtual_text }
 end, { desc = "Toggle virtual text for diagnostics" })
+
+vim.keymap.set('n', '<leader>sn', function()
+  require('fzf-lua').files({ cwd = vim.fn.stdpath('config') })
+end, { desc = '[S]earch [N]eovim files' })

@@ -23,48 +23,10 @@ end, {})
 
 vim.keymap.set("n", "<leader>gs", ":GitBlameShort<CR>", { noremap = true, silent = true })
 
-local builtin = require('telescope.builtin')
-local action_state = require('telescope.actions.state')
-local actions = require('telescope.actions')
-
-local buffer_searcher
-buffer_searcher = function()
-  builtin.buffers {
-    sort_mru = true,
-    attach_mappings = function(prompt_bufnr, map)
-      local delete_buf = function()
-        local selection = action_state.get_selected_entry()
-        -- depending if you want to close or not, include this or not
-        actions.close(prompt_bufnr)
-        -- print(vim.inspect(selection))
-        -- better print selection before first running this. I am not sure if it have a bufnr or if this field is named differently
-        vim.api.nvim_buf_delete(selection.bufnr, {})
-        vim.schedule(buffer_searcher)
-      end
-      local delete_multiple_buf = function()
-        local picker = action_state.get_current_picker(prompt_bufnr)
-        local selection = picker:get_multi_selection()
-        for _, entry in ipairs(selection) do
-          vim.api.nvim_buf_delete(entry.bufnr, {})
-        end
-        vim.schedule(buffer_searcher)
-      end
-      map('n', 'dd', delete_buf)
-      map('n', '<C-d>', delete_multiple_buf)
-      map('i', '<C-d>', delete_multiple_buf)
-      return true
-    end
-  }
-end
-
-vim.keymap.set('n', '<leader><leader>', buffer_searcher, {})
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -73,6 +35,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Highlights todos, notes and fixme's
 vim.api.nvim_set_hl(0, "TODO", { fg = "#000000", bg = "#0DB9D7", bold = true, italic = true })
 vim.api.nvim_set_hl(0, "NOTE", { fg = "#000000", bg = "#10B981", bold = true, italic = true })
 vim.api.nvim_set_hl(0, "FIXME", { fg = "#ffffff", bg = "#DB4B4B", bold = true, italic = true })
