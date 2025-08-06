@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 local plugins = {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  -- { "tpope/vim-sleuth" }, -- Detect tabstop and shiftwidth automatically
+  { "tpope/vim-sleuth" }, -- Detect tabstop and shiftwidth automatically
   {
     "barrett-ruth/live-server.nvim",
     build = "pnpm add -g live-server",
@@ -34,8 +34,9 @@ local plugins = {
   -- },
   --  This is equivalent to:
   --    require('telescope').setup({})
-  require "custom.plugins.telescope",
+  -- require "custom.plugins.telescope",
   require "custom.plugins.which-key",
+  require "custom.plugins.fzf",
   -- require "custom.plugins.lspconfig",
   require "custom.plugins.conform",
   require "custom.plugins.treesitter",

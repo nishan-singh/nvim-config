@@ -12,6 +12,7 @@ vim.g.have_nerd_font = true
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.numberwidth = 2
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
@@ -33,6 +34,7 @@ vim.opt.undofile = true
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.wrapscan = false-- Wrap search results
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
