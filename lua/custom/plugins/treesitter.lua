@@ -2,7 +2,7 @@ return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    event = "InsertEnter",
+    event = 'BufReadPost',
     opts = {
       ensure_installed = { 'html', 'lua', 'luadoc', 'markdown' },
       -- Autoinstall languages that are not installed

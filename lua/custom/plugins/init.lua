@@ -10,7 +10,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   {
     "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-    event = "VeryLazy"
+    event = "InsertEnter"
   },
   {
     "barrett-ruth/live-server.nvim",
