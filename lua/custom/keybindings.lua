@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.opt.termguicolors = true
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -13,6 +14,20 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 2
+
+-- Provides tab-completion for files in subdirectories
+vim.opt.path:append "**"
+
+-- Display all matching files when tab completing
+vim.opt.wildmenu = true
+
+-- ignore these dirs
+vim.opt.wildignore:append {
+  "*/node_modules/*",
+  "*/.git/*",
+  "*/dist/*",
+  "*/build/*",
+}
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
@@ -34,7 +49,6 @@ vim.opt.undofile = true
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.wrapscan = false-- Wrap search results
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
@@ -109,6 +123,8 @@ vim.keymap.set("n", "<leader>vt", function()
   vim.diagnostic.config { virtual_text = not vim.diagnostic.config().virtual_text }
 end, { desc = "Toggle virtual text for diagnostics" })
 
-vim.keymap.set('n', '<leader>sn', function()
-  require('fzf-lua').files({ cwd = vim.fn.stdpath('config') })
-end, { desc = '[S]earch [N]eovim files' })
+vim.keymap.set("n", "<leader>sn", function()
+  require("fzf-lua").files { cwd = vim.fn.stdpath "config" }
+end, { desc = "[S]earch [N]eovim files" })
+
+vim.keymap.set("n", "<leader>cl", "<cmd>checkhealth lsp<CR>")
