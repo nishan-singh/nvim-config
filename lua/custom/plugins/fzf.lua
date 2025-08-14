@@ -1,10 +1,7 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    -- or if using mini.icons/mini.nvim
-    -- dependencies = { "echasnovski/mini.icons" },
     keys = {
       { "<leader>sh", "<cmd>FzfLua help_tags<cr>", desc = "Help Tags" },
       { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
@@ -16,8 +13,14 @@ return {
       { "<leader>sr", "<cmd>FzfLua resume<cr>", desc = "Resume" },
       { "<leader>s.", "<cmd>FzfLua oldfiles<cr>", desc = "Old Files" },
       { "<leader><leader>", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
-      -- { "/", "<cmd>FzfLua current_buffer_fuzzy_find<cr>", desc = "Current Buffer Fuzzy Find" },
-      { "<leader>s/", "<cmd>FzfLua live_grep_open_files<cr>", desc = "Live Grep Open Files" },
     },
+    opts = {
+      keymap = {
+        builtin = {
+          ['<C-u>'] = 'preview-page-up',
+          ['<C-d>'] = 'preview-page-down',
+        },
+      },
+    }
   },
 }
