@@ -9,6 +9,8 @@ return {
   },
   root_markers = { "angular.json", "package.json", ".git" },
   filetypes = {
-   "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" 
+    "typescript",
+    "html",
+    "htmlangular",
   },
 }

@@ -1,7 +1,10 @@
 return {
-  cmd = { "emmet-language-server" },
+  cmd = {
+    "emmet-language-server",
+    "--stdio",
+  },
   root_markers = { "package.json", ".git" },
-  filetypes = { 
+  filetypes = {
     "html",
     "css",
     "scss",
@@ -12,6 +15,6 @@ return {
     "vue",
     "svelte",
     "jsx",
-    "ts" 
+    "ts"
   },
 }
