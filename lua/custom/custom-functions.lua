@@ -39,6 +39,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_set_hl(0, "TODO", { fg = "#000000", bg = "#0DB9D7", bold = true, italic = true })
 vim.api.nvim_set_hl(0, "NOTE", { fg = "#000000", bg = "#10B981", bold = true, italic = true })
 vim.api.nvim_set_hl(0, "FIXME", { fg = "#ffffff", bg = "#DB4B4B", bold = true, italic = true })
+vim.api.nvim_set_hl(0, "INFO", { fg = "#000000", bg = "#FBBF24", bold = true, italic = true })
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "WinEnter" }, {
   pattern = '*',
@@ -46,5 +47,6 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "WinEnter" }, {
     vim.fn.matchadd('TODO', "TODO")
     vim.fn.matchadd('NOTE', "NOTE")
     vim.fn.matchadd('FIXME', "FIXME")
+    vim.fn.matchadd('INFO', "INFO")
   end,
 })

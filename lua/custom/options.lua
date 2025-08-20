@@ -40,8 +40,8 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
 
 -- Tab settings
-vim.opt.tabstop = 4 -- Number of spaces that a <Tab> counts for
-vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
+vim.opt.tabstop = 2 -- Number of spaces that a <Tab> counts for
+vim.opt.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
 
 -- Decrease update time
 vim.opt.updatetime = 250
