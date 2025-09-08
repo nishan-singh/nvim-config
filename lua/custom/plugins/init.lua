@@ -10,7 +10,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   {
     "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-    event = "InsertEnter"
+    event = "InsertEnter",
   },
   {
     "barrett-ruth/live-server.nvim",
@@ -23,7 +23,7 @@ local plugins = {
     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-	ft = "markdown",
+    ft = "markdown",
     opts = {},
   },
   --  This is equivalent to:

@@ -21,7 +21,7 @@ vim.api.nvim_create_user_command("GitBlameShort", function()
   print(string.format("Author: %s\nDate: %s\nMessage: %s", author or "", timestamp or "", summary or ""))
 end, {})
 
-vim.keymap.set("n", "<leader>gs", ":GitBlameShort<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gb", ":GitBlameShort<CR>", { noremap = true, silent = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

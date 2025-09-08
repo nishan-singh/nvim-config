@@ -4,7 +4,7 @@ return {
     lazy = true,
     delete_to_trash = true,
     config = function()
-      require('oil').setup { keymaps = { ['q'] = 'actions.close' } }
+      require('oil').setup {  }
     end,
     keys = {
       { '-', '<cmd>Oil <cr>', mode = 'n', desc = 'Open Floating Filesystem' },
