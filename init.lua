@@ -1,6 +1,7 @@
 require "options"
 require "keybindings"
 require "abbreviations"
+require "statusline"
 require "lazy-init"
 require "custom-functions"
 require "lsp"
