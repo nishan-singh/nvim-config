@@ -8,16 +8,10 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  {
-    "tpope/vim-sleuth",
-    event = "InsertEnter",
-  },
-  {
-    "barrett-ruth/live-server.nvim",
-    build = "pnpm add -g live-server",
-    cmd = { "LiveServerStart", "LiveServerStop" },
-    config = true,
-  },
+  -- {
+  --   "tpope/vim-sleuth",
+  --   event = "InsertEnter",
+  -- },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     ---@module 'render-markdown'
@@ -25,16 +19,16 @@ local plugins = {
     ft = "markdown",
     opts = {},
   },
-  require "plugins.highlight-colors",
   require "plugins.which-key",
   require "plugins.fzf",
-  require "plugins.conform",
   require "plugins.treesitter",
   require "plugins.tokyonight",
   require "plugins.oil",
   require "plugins.vim-fugitive",
   require "plugins.copilot",
   require "plugins.autopairs",
+  -- require "plugins.conform",
+  -- require "plugins.highlight-colors",
   -- require "plugins.telescope",
   -- require "plugins.lspconfig",
   -- require "plugins.nvim-cmd",
