@@ -36,6 +36,9 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Highlight all matches on previous search pattern
+vim.opt.hlsearch = true
+
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
 
