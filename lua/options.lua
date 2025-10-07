@@ -5,26 +5,29 @@ vim.opt.termguicolors = true
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
--- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
-
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 2
+
+vim.opt.path:append "**"
+
+-- Display all matching files when tab completing
+vim.opt.wildmenu = true
+
+-- ignore these dirs
+vim.opt.wildignore:append {
+  "*/node_modules/*",
+  "*/.git/*",
+  "*/dist/*",
+  "*/build/*",
+}
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
-
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
--- vim.opt.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -73,9 +76,6 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
-
--- Lsp hover border
--- vim.opt.winborder = "rounded"
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`

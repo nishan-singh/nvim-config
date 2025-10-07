@@ -46,13 +46,13 @@ my_file_size = function()
   if size < 0 then return "" end -- buffer might not be a file
 
   if size < 1024 then
-    return string.format("%dB", size)
+    return string.format("%d B", size)
   elseif size < 1024 * 1024 then
-    return string.format("%.2fKB", size / 1024)
+    return string.format("%.2f KB", size / 1024)
   elseif size < 1024 * 1024 * 1024 then
-    return string.format("%.2fMB", size / (1024 * 1024))
+    return string.format("%.2f MB", size / (1024 * 1024))
   else
-    return string.format("%.2fGB", size / (1024 * 1024 * 1024))
+    return string.format("%.2f GB", size / (1024 * 1024 * 1024))
   end
 end
 
