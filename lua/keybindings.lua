@@ -6,8 +6,8 @@ vim.keymap.set({ "i", "c" }, "<BS>", "<Nop>", { noremap = true, silent = true })
 
 vim.keymap.set("i", "<C-\\>d", "<Del>", { noremap = true, silent = true })
 
--- Set <C-a> to move to beginning of line and set <C-b> to one character back
-
+vim.keymap.set('c', '<C-a>', '<Home>', { noremap = true })
+vim.keymap.set('c', '<C-b>', '<Left>', { noremap = true })
 
 ---------------------------------- Plugin based keybindings ----------------------------------
 -- <leader>od -> pick a directory with fzf-lua, open it in oil
@@ -39,3 +39,8 @@ vim.keymap.set("n", "<leader>sn", function()
 end, { desc = "[S]earch [N]eovim files" })
 
 vim.keymap.set("n", "<leader>cl", "<cmd>checkhealth lsp<CR>")
+
+-- Defined in lua/custom-functions.lua
+vim.keymap.set("n", "<leader>gb", ":GitBlameShort<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>sf", ":find ", { noremap = true })

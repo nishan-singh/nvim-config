@@ -1,16 +1,17 @@
-vim.o.laststatus = 2
-
 -- Your palette for modes
 local palette = {
-  NORMAL   = { bg = "#82aaff" },
-  INSERT   = { bg = "#c3e88d" },
-  VISUAL   = { bg = "#c099ff" },
-  VLINE    = { bg = "#c099ff" },
-  VBLOCK   = { bg = "#c099ff" },
-  REPLACE  = { bg = "#ff757f" },
-  COMMAND  = { bg = "#ffc777" },
-  TERMINAL = { bg = "#4fd6be" },
+  NORMAL   = "#82aaff",
+  INSERT   = "#c3e88d",
+  VISUAL   = "#c099ff",
+  VLINE    = "#c099ff",
+  VBLOCK   = "#c099ff",
+  REPLACE  = "#ff757f",
+  COMMAND  = "#ffc777",
+  TERMINAL = "#4fd6be",
 }
+
+-- BG color
+local fg_color = "#1b1d2d"
 
 -- Mode label text
 my_mode_label = function()
@@ -31,7 +32,7 @@ local function apply_mode_hl()
   local key = my_mode_label()
 
   local c = palette[key] or palette.NORMAL
-  vim.api.nvim_set_hl(0, "MySLMode", { fg = "#1b1d2d", bg = c.bg, bold = true })
+  vim.api.nvim_set_hl(0, "MySLMode", { fg = fg_color, bg = c, bold = true })
   return key
 end
 
