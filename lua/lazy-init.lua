@@ -26,7 +26,7 @@ local plugins = {
   require "plugins.oil",
   require "plugins.vim-fugitive",
   require "plugins.copilot",
-  require "plugins.autopairs",
+  -- require "plugins.autopairs",
   -- require "plugins.conform",
   -- require "plugins.highlight-colors",
   -- require "plugins.telescope",
