@@ -1,10 +1,9 @@
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Disable Backspace in insert + command-line modes
-vim.keymap.set({ "i", "c" }, "<BS>", "<Nop>", { noremap = true, silent = true })
-
 vim.keymap.set("i", "<C-\\>d", "<Del>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "-", ":Lexplore<CR>", { noremap = true })
 
 vim.keymap.set('c', '<C-a>', '<Home>', { noremap = true })
 vim.keymap.set('c', '<C-b>', '<Left>', { noremap = true })

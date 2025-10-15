@@ -23,7 +23,7 @@ local plugins = {
   require "plugins.fzf",
   require "plugins.treesitter",
   require "plugins.tokyonight",
-  require "plugins.oil",
+  -- require "plugins.oil",
   require "plugins.vim-fugitive",
   require "plugins.copilot",
   -- require "plugins.autopairs",
