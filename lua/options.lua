@@ -77,5 +77,10 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
 
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
+-- netrw tweaks
+
+vim.g.netrw_banner = 0 -- remove help banner
+vim.g.netrw_winsize = 20
+vim.g.netrw_liststyle = 3 -- tree view style as default view
+vim.g.netrw_sizestyle = 'h' -- human readable sizes like 5K or 3G instead of bytes
+-- vim.g.netrw_list_hide = vim.fn['netrw_gitignore#Hide']() .. [[.git/]] -- see `:help netrw-gitignore`

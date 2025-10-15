@@ -9,26 +9,28 @@ local PAIRS = {
   ["`"] = "`",
 }
 
--- -- Optional: disable for certain filetypes (e.g., when using vimtex)
--- local DISABLED_FTS = {
---   -- tex = true,
--- }
---
--- local function ft_disabled()
---   return DISABLED_FTS[vim.bo.filetype] == true
--- end
+-- Optional: disable for certain filetypes (e.g., when using vimtex)
+local DISABLED_FTS = {
+  text = true,
+}
 
-local function blank_line()
-  -- if ft_disabled() then return "<CR>" end
+local function ft_disabled()
+  return DISABLED_FTS[vim.bo.filetype] == true
+end
+
+-- a generic function to do different actions like insert a new line or
+-- remove both brackets if <C-h> or <BS> is pressed
+local function do_action(default_action, pair_action)
+  if ft_disabled() then return default_action end
   local col = vim.fn.col(".")
+
   local line = vim.fn.getline(".")
   local prevc = line:sub(col - 1, col - 1)
   local nextc = line:sub(col, col)
   if PAIRS[prevc] and PAIRS[prevc] == nextc then
-    -- insert newline, then open a line above (keeps indent), return to insert
-    return "<CR><Esc>O"
+    return pair_action
   end
-  return "<CR>"
+  return default_action
 end
 
 function M.setup()
@@ -38,14 +40,23 @@ function M.setup()
   -- Opening chars: insert pair and place cursor in between
   for open, close in pairs(PAIRS) do
     map("i", open, function()
-      -- if ft_disabled() then return open end
+      if ft_disabled() then return open end
       return open .. close .. "<Left>"
     end, iopts)
   end
 
   -- Optional: Enter between pairs -> adds a blank line in between and keeps indent
-  map("i", "<CR>", blank_line, iopts)
-  map("i", "<C-j>", blank_line, iopts)
+  map("i", "<CR>", function()
+    return do_action("<CR>", "<CR><Esc>O")
+  end, iopts)
+  map("i", "<C-j>", function()
+    return do_action("<CR>", "<CR><Esc>O")
+  end, iopts)
+
+  -- Deletes both chars, if it's a pair
+  map("i", "<BS>", function()
+    return do_action("<BS>", "<Del><BS>")
+  end, iopts)
 end
 
 return M.setup()
