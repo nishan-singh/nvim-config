@@ -3,7 +3,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("i", "<C-\\>d", "<Del>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "-", ":Lexplore<CR>", { noremap = true })
+vim.keymap.set("n", "-", ":Ex<CR>", { noremap = true })
 
 vim.keymap.set('c', '<C-a>', '<Home>', { noremap = true })
 vim.keymap.set('c', '<C-b>', '<Left>', { noremap = true })
