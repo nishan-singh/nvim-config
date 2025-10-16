@@ -3,14 +3,13 @@ return {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
-      { "<leader>sh", "<cmd>FzfLua help_tags<cr>", desc = "Help Tags" },
       { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
       { "<leader>ss", "<cmd>FzfLua builtin<cr>", desc = "Builtin" },
       { "<leader>sw", "<cmd>FzfLua grep_cword<cr>", desc = "Grep Cword" },
-      { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
-      { "<leader>sd", "<cmd>FzfLua diagnostics<cr>", desc = "Diagnostics" },
-      { "<leader>sr", "<cmd>FzfLua resume<cr>", desc = "Resume" },
       { "<leader>s.", "<cmd>FzfLua oldfiles<cr>", desc = "Old Files" },
+      { "<leader>sr", "<cmd>FzfLua resume<cr>", desc = "Resume" },
+      { "<leader>sf", "<cmd>FzfLua files<cr>", desc = "Files" },
+      { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Live Grep" },
     },
     opts = {
       "ivy",
