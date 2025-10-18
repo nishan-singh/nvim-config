@@ -1,7 +1,7 @@
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
-vim.keymap.set("i", "<C-\\>d", "<Del>", { noremap = true, silent = true })
+vim.keymap.set("i", "<C-\\>d", "<Del>", { noremap = true })
 
 vim.keymap.set("n", "-", ":Ex<CR>", { noremap = true })
 
@@ -36,10 +36,8 @@ end, { desc = "Toggle virtual text for diagnostics" })
 vim.keymap.set("n", "<leader>sn", function()
   require("fzf-lua").files { cwd = vim.fn.stdpath "config" }
 end, { desc = "[S]earch [N]eovim files" })
-
-vim.keymap.set("n", "<leader>cl", "<cmd>checkhealth lsp<CR>")
-
 -- Defined in lua/custom-functions.lua
 vim.keymap.set("n", "<leader>gb", ":GitBlameShort<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>sf", ":find ", { noremap = true })
+vim.keymap.set("n", "<leader>sg", ":grep ", { noremap = true })

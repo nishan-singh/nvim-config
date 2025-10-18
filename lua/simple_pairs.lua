@@ -23,7 +23,6 @@ end
 local function do_action(default_action, pair_action)
   if ft_disabled() then return default_action end
   local col = vim.fn.col(".")
-
   local line = vim.fn.getline(".")
   local prevc = line:sub(col - 1, col - 1)
   local nextc = line:sub(col, col)
@@ -37,10 +36,19 @@ function M.setup()
   local map = vim.keymap.set
   local iopts = { expr = true, noremap = true, silent = true }
 
-  -- Opening chars: insert pair and place cursor in between
   for open, close in pairs(PAIRS) do
     map("i", open, function()
       if ft_disabled() then return open end
+
+      local col = vim.fn.col(".")
+      local line = vim.fn.getline(".")
+      local nextc = line:sub(col, col) -- next character under cursor
+
+      -- Only insert pair if next character is end of line or whitespace
+      if nextc ~= "" and not nextc:match("%s") then
+        return open
+      end
+
       return open .. close .. "<Left>"
     end, iopts)
   end
@@ -55,6 +63,9 @@ function M.setup()
 
   -- Deletes both chars, if it's a pair
   map("i", "<BS>", function()
+    return do_action("<BS>", "<Del><BS>")
+  end, iopts)
+  map("i", "<C-h>", function()
     return do_action("<BS>", "<Del><BS>")
   end, iopts)
 end
