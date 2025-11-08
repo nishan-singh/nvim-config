@@ -1,5 +1,3 @@
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -8,10 +6,9 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  -- {
-  --   "tpope/vim-sleuth",
-  --   event = "InsertEnter",
-  -- },
+  {
+    "tpope/vim-vinegar"
+  },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     ---@module 'render-markdown'
@@ -19,19 +16,20 @@ local plugins = {
     ft = "markdown",
     opts = {},
   },
+  {
+    "nvimdev/indentmini.nvim",
+    event = "VeryLazy",
+    opts = { -- trigger the plugin to load and used for conf
+      only_current = true
+    } 
+  },
   require "plugins.which-key",
   require "plugins.fzf",
   require "plugins.treesitter",
   require "plugins.tokyonight",
-  -- require "plugins.oil",
   require "plugins.vim-fugitive",
   require "plugins.copilot",
-  -- require "plugins.autopairs",
-  -- require "plugins.conform",
   -- require "plugins.highlight-colors",
-  -- require "plugins.telescope",
-  -- require "plugins.lspconfig",
-  -- require "plugins.nvim-cmd",
 }
 
 local opts = {
