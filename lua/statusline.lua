@@ -1,30 +1,32 @@
+local c = require("lemons.colors")
+
 -- Your palette for modes
 local palette = {
-  NORMAL   = "#82aaff",
-  INSERT   = "#c3e88d",
-  VISUAL   = "#c099ff",
-  VLINE    = "#c099ff",
-  VBLOCK   = "#c099ff",
-  REPLACE  = "#ff757f",
-  COMMAND  = "#ffc777",
-  TERMINAL = "#4fd6be",
+  NORMAL   = c.yellow,
+  INSERT   = c.green,
+  VISUAL   = c.pink,
+  V_LINE   = c.pink,
+  V_BLOCK  = c.pink,
+  REPLACE  = c.red,
+  COMMAND  = c.blue,
+  TERMINAL = c.orange,
 }
 
 -- BG color
-local fg_color = "#1b1d2d"
+local fg_color = c.black
 
 -- Mode label text
 my_mode_label = function()
   local m = vim.fn.mode()
   return (m == "n" and "NORMAL")
-      or (m == "i" and "INSERT")
-      or (m == "R" and "REPLACE")
-      or (m == "v" and "VISUAL")
-      or (m == "V" and "V-LINE")
-      or (m == "" and "V-BLOCK")
-      or (m == "c" and "COMMAND")
-      or (m == "t" and "TERMINAL")
-      or "NORMAL"
+    or (m == "i" and "INSERT")
+    or (m == "R" and "REPLACE")
+    or (m == "v" and "VISUAL")
+    or (m == "V" and "V_LINE")
+    or (m == "" and "V_BLOCK")
+    or (m == "c" and "COMMAND")
+    or (m == "t" and "TERMINAL")
+    or "NORMAL"
 end
 
 -- Apply mode pill highlight dynamically
@@ -33,7 +35,6 @@ local function apply_mode_hl()
 
   local c = palette[key] or palette.NORMAL
   vim.api.nvim_set_hl(0, "MySLMode", { fg = fg_color, bg = c, bold = true })
-  return key
 end
 
 -- File size function (B, KB, MB, GB)
@@ -72,11 +73,5 @@ vim.o.statusline = table.concat({
 
 -- Update on mode change and reapply on colorscheme change
 vim.api.nvim_create_autocmd("ModeChanged", { callback = apply_mode_hl })
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function()
-    vim.api.nvim_set_hl(0, "StatusLine", { fg = "#7E87B3", bg = "#2F334D" })
-    apply_mode_hl()
-  end,
-})
 
 apply_mode_hl()

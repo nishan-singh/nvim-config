@@ -79,3 +79,5 @@ vim.opt.scrolloff = 5
 
 -- set autocomplete max-height(C-n,C-p)
 vim.opt.ph = 25
+
+vim.cmd.highlight('IndentLineCurrent guifg=#303030')

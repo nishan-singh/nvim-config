@@ -24,9 +24,10 @@ local plugins = {
     } 
   },
   require "plugins.which-key",
-  require "plugins.fzf",
+  -- require "plugins.fzf",
   require "plugins.treesitter",
-  require "plugins.tokyonight",
+  -- require "plugins.tokyonight",
+  require "plugins.lemons",
   require "plugins.vim-fugitive",
   require "plugins.copilot",
   -- require "plugins.highlight-colors",
