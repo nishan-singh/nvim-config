@@ -81,3 +81,6 @@ vim.opt.scrolloff = 5
 vim.opt.ph = 25
 
 vim.cmd.highlight('IndentLineCurrent guifg=#303030')
+
+vim.opt.grepprg = "rg --vimgrep --smart-case"
+vim.opt.grepformat = "%f:%l:%c:%m"

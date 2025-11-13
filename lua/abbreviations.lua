@@ -1,6 +1,6 @@
 -- Abbreviations
+-- Add <Del> to get rid of autopairs
 vim.cmd [[
-  iabbrev csm console.log("------------------------------
-  iabbrev cse console.log(
+  iabbrev csm console.log("------------------------------");<Del>
   iabbrev csw console.log("
 ]]

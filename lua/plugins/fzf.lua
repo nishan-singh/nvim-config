@@ -1,6 +1,7 @@
 return {
   {
     "ibhagwan/fzf-lua",
+    event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
       { "<leader>sk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
