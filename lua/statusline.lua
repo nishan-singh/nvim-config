@@ -1,4 +1,4 @@
-local c = require("lemons.colors")
+local c = require("lemons.colors").colors
 
 -- Your palette for modes
 local palette = {

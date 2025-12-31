@@ -84,3 +84,6 @@ vim.cmd.highlight('IndentLineCurrent guifg=#303030')
 
 vim.opt.grepprg = "rg --vimgrep --smart-case"
 vim.opt.grepformat = "%f:%l:%c:%m"
+
+-- netrw a-z sequence
+vim.g.netrw_sort_sequence = [[[\/]$,*]]
