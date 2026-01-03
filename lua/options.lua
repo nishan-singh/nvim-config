@@ -87,3 +87,6 @@ vim.opt.grepformat = "%f:%l:%c:%m"
 
 -- netrw a-z sequence
 vim.g.netrw_sort_sequence = [[[\/]$,*]]
+
+-- colorscheme
+vim.cmd.colorscheme("wildcharm")

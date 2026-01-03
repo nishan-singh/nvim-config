@@ -1,19 +1,17 @@
-local c = require("lemons.colors").colors
-
 -- Your palette for modes
 local palette = {
-  NORMAL   = c.yellow,
-  INSERT   = c.green,
-  VISUAL   = c.pink,
-  V_LINE   = c.pink,
-  V_BLOCK  = c.pink,
-  REPLACE  = c.red,
-  COMMAND  = c.blue,
-  TERMINAL = c.orange,
+  NORMAL   = "#f0be42",
+  INSERT   = "#2ed563",
+  VISUAL   = "#f45ab4",
+  V_LINE   = "#f45ab4",
+  V_BLOCK  = "#f45ab4",
+  REPLACE  = "#ed505e",
+  COMMAND  = "#5088ed",
+  TERMINAL = "fa8a49"
 }
 
 -- BG color
-local fg_color = c.black
+local fg_color = "#040404"
 
 -- Mode label text
 my_mode_label = function()

@@ -27,7 +27,7 @@ local plugins = {
   -- require "plugins.fzf",
   require "plugins.treesitter",
   -- require "plugins.tokyonight",
-  require "plugins.lemons",
+  -- require "plugins.lemons",
   require "plugins.vim-fugitive",
   require "plugins.copilot",
   -- require "plugins.highlight-colors",
