@@ -27,14 +27,24 @@ my_mode_label = function()
     or "NORMAL"
 end
 
+-- Base background
+local function apply_base_statusline_hl()
+  vim.api.nvim_set_hl(0, "StatusLine", {
+    bg = fg_color
+  })
+
+  vim.api.nvim_set_hl(0, "StatusLineNC", {
+    bg = "#212020",
+    fg = "#6c7086",
+  })
+end
+
 -- Apply mode pill highlight dynamically
 local function apply_mode_hl()
   local key = my_mode_label()
 
   local c = palette[key] or palette.NORMAL
   vim.api.nvim_set_hl(0, "MySLMode", { fg = fg_color, bg = c, bold = true })
-  vim.api.nvim_set_hl(0, "StatusLine", { bg = fg_color }) -- make sure to apply bg color
-  vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#212020", fg = "#6c7086", }) -- Dimmed for inactive windows
 end
 
 -- File size function (B, KB, MB, GB)
@@ -71,7 +81,12 @@ vim.o.statusline = table.concat({
   " %l:%c %p%% ",
 })
 
--- Update on mode change and reapply on colorscheme change
-vim.api.nvim_create_autocmd("ModeChanged", { callback = apply_mode_hl })
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = apply_base_statusline_hl,
+})
 
-apply_mode_hl()
+-- Update on mode change and reapply on colorscheme change
+vim.api.nvim_create_autocmd({ "ModeChanged", "WinEnter", "BufEnter" }, {
+  callback = apply_mode_hl,
+})
+
