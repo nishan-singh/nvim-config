@@ -7,7 +7,7 @@ local palette = {
   V_BLOCK  = "#f45ab4",
   REPLACE  = "#ed505e",
   COMMAND  = "#5088ed",
-  TERMINAL = "fa8a49"
+  TERMINAL = "#fa8a49"
 }
 
 -- BG color
@@ -33,6 +33,8 @@ local function apply_mode_hl()
 
   local c = palette[key] or palette.NORMAL
   vim.api.nvim_set_hl(0, "MySLMode", { fg = fg_color, bg = c, bold = true })
+  vim.api.nvim_set_hl(0, "StatusLine", { bg = fg_color }) -- make sure to apply bg color
+  vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "#212020", fg = "#6c7086", }) -- Dimmed for inactive windows
 end
 
 -- File size function (B, KB, MB, GB)
