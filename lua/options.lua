@@ -89,7 +89,7 @@ vim.opt.grepformat = "%f:%l:%c:%m"
 vim.g.netrw_sort_sequence = [[[\/]$,*]]
 
 -- colorscheme
-vim.cmd.colorscheme("wildcharm")
+vim.cmd.colorscheme("sorbet")
 
 -- which-key bg-color
 vim.api.nvim_set_hl(0, 'WhichKeyNormal', { bg = '#101010' })

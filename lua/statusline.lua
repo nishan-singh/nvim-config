@@ -30,11 +30,11 @@ end
 -- Base background
 local function apply_base_statusline_hl()
   vim.api.nvim_set_hl(0, "StatusLine", {
-    bg = fg_color
+    bg = "#202330"
   })
 
   vim.api.nvim_set_hl(0, "StatusLineNC", {
-    bg = "#212020",
+    bg = "#17181f",
     fg = "#6c7086",
   })
 end
