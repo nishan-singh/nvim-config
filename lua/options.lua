@@ -90,3 +90,9 @@ vim.g.netrw_sort_sequence = [[[\/]$,*]]
 
 -- colorscheme
 vim.cmd.colorscheme("wildcharm")
+
+-- which-key bg-color
+vim.api.nvim_set_hl(0, 'WhichKeyNormal', { bg = '#101010' })
+-- popup menu colors
+vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#080808' })
+vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#303030' })
