@@ -92,7 +92,9 @@ vim.g.netrw_sort_sequence = [[[\/]$,*]]
 vim.cmd.colorscheme("sorbet")
 
 -- which-key bg-color
-vim.api.nvim_set_hl(0, 'WhichKeyNormal', { bg = '#101010' })
+vim.api.nvim_set_hl(0, 'WhichKeyNormal', { bg = '#202330' })
 -- popup menu colors
-vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#080808' })
-vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#303030' })
+vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#161821' })
+vim.api.nvim_set_hl(0, 'PmenuSel', { bg = '#2d3140' })
+-- visual color
+vim.api.nvim_set_hl(0, 'Visual', { bg = '#264f78' })

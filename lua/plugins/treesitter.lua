@@ -1,43 +1,35 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
-  lazy = false,
-  branch = 'main',
-  build = ':TSUpdate',
-  config = function()
-    local ts = require('nvim-treesitter')
+  { -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    build = ':TSUpdate',
+    opts = {
+      auto_install = true,
+      highlight = {
+        enable = true,
+        disable = function(_, buf)
+          local max_filesize = 1024 * 1024 -- 1 MB
+          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          if ok and stats and stats.size > max_filesize then
+            vim.notify 'Tree sitter disabled'
+            return true
+          end
+        end,
+      },
+      indent = { enable = true, disable = { 'ruby' } },
+    },
+    config = function(_, opts)
+      -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+      -- Prefer git instead of curl in order to improve connectivity in some environments
+      require('nvim-treesitter.install').prefer_git = true
+      ---@diagnostic disable-next-line: missing-fields
 
-    local group = vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })
-
-    local ignore_filetypes = {
-      'checkhealth',
-      'lazy',
-      'mason',
-      'snacks_dashboard',
-      'snacks_notif',
-      'snacks_win',
-    }
-
-    -- Auto-install parsers and enable highlighting on FileType
-    vim.api.nvim_create_autocmd('FileType', {
-      group = group,
-      desc = 'Enable treesitter highlighting and indentation',
-      callback = function(event)
-        if vim.tbl_contains(ignore_filetypes, event.match) then
-          return
-        end
-
-        local lang = vim.treesitter.language.get_lang(event.match) or event.match
-        local buf = event.buf
-
-        -- Start highlighting immediately (works if parser exists)
-        pcall(vim.treesitter.start, buf, lang)
-
-        -- Enable treesitter indentation
-        vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-
-        -- Install missing parsers (async, no-op if already installed)
-        ts.install({ lang })
-      end,
-    })
-  end,
+      -- There are additional nvim-treesitter modules that you can use to interact
+      -- with nvim-treesitter. You should go explore a few and see what interests you:
+      --
+      --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
+      --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
+      --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    end,
+  },
 }
