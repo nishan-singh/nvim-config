@@ -13,3 +13,6 @@ vim.keymap.set("n", "<leader>gb", ":GitBlameShort<CR>", { noremap = true, silent
 
 vim.keymap.set("n", "<leader>sf", ":find ", { noremap = true })
 vim.keymap.set("n", "<leader>sg", ":grep ", { noremap = true })
+
+vim.keymap.set("n", "gs", "^", {noremap = true})
+vim.keymap.set("n", "gl", "$", {noremap = true})
