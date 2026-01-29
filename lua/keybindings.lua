@@ -16,3 +16,10 @@ vim.keymap.set("n", "<leader>g", ":grep ", { noremap = true })
 
 vim.keymap.set("n", "gs", "^", {noremap = true})
 vim.keymap.set("n", "gl", "$", {noremap = true})
+
+---------------------------------- Plugin based keybindings ----------------------------------
+
+vim.keymap.set('n', '<leader>f', function()
+  require('fff').find_files()
+end, { desc = '[F]ind [F]iles with fff.nvim' })
+
