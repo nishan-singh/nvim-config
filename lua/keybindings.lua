@@ -9,10 +9,10 @@ vim.keymap.set('c', '<C-a>', '<Home>', { noremap = true })
 vim.keymap.set('c', '<C-b>', '<Left>', { noremap = true })
 
 -- Defined in lua/custom-functions.lua
-vim.keymap.set("n", "<leader>gb", ":GitBlameShort<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>b", ":GitBlameShort<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>sf", ":find ", { noremap = true })
-vim.keymap.set("n", "<leader>sg", ":grep ", { noremap = true })
+vim.keymap.set("n", "<leader>f", ":find ", { noremap = true })
+vim.keymap.set("n", "<leader>g", ":grep ", { noremap = true })
 
 vim.keymap.set("n", "gs", "^", {noremap = true})
 vim.keymap.set("n", "gl", "$", {noremap = true})

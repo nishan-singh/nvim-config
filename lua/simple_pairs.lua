@@ -44,12 +44,12 @@ function M.setup()
       local line = vim.fn.getline(".")
       local nextc = line:sub(col, col) -- next character under cursor
 
-      -- Only insert pair if next character is end of line or whitespace
-      if nextc ~= "" and not nextc:match("%s") then
-        return open
+      -- Only insert pair if next character is end of line or a whitespace or a closing pair
+      if nextc:match("[%)}%]]") or nextc == "" or nextc:match("%s") then
+        return open .. close .. "<Left>"
       end
 
-      return open .. close .. "<Left>"
+     return open
     end, iopts)
   end
 

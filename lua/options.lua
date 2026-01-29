@@ -46,9 +46,9 @@ vim.opt.hlsearch = true
 vim.opt.signcolumn = "yes"
 
 -- Tab settings
-vim.opt.tabstop = 2 -- Number of spaces that a <Tab> counts for
-vim.opt.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
-vim.opt.softtabstop = 2   -- how many spaces <Tab> inserts in insert mode
+vim.opt.tabstop = 4 -- Number of spaces that a <Tab> counts for
+vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
+vim.opt.softtabstop = 4   -- how many spaces <Tab> inserts in insert mode
 vim.opt.expandtab = true  -- convert tabs to spaces
 
 -- Decrease update time
